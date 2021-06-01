@@ -26,17 +26,6 @@ struct CustomOrders: View {
                 
                 Divider()
                 HStack{
-                    VStack{
-                        Image("oj")
-                            .resizable()
-                            .frame(width: 80, height: 60)
-                        Image("oj")
-                            .resizable()
-                            .frame(width: 80, height: 60)
-                            .padding(.top, 30)
-                    }
-                    .padding(.trailing, 6)
-                    Divider()
                     Text("Clientul nostru, prietenul nostru 😊 \nReFresh vă oferă acum posibilitatea de a comanda produse în cantități mari, la prețuri avantajoase. La orice comandă personalizată de minim 300 de lei, prețul final beneficiind de o reducere. Nu vă faceți griji în legătură cu transportul deoarece este inclus în preț.")
                         .font(.headline)
                         .padding([.bottom, .leading], 10)

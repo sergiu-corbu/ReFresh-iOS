@@ -35,6 +35,7 @@
 		ECB74A5B2629EDED00EA741D /* FinishRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB74A582629EDED00EA741D /* FinishRegistration.swift */; };
 		ECB74A5C2629EDED00EA741D /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB74A592629EDED00EA741D /* SignUp.swift */; };
 		ECB74A5D2629EDED00EA741D /* GreetingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB74A5A2629EDED00EA741D /* GreetingCard.swift */; };
+		ECB74A652629F1EC00EA741D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECB74A642629F1EC00EA741D /* GoogleService-Info.plist */; };
 		ECC99D1826230D6B00E24014 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC99D1726230D6B00E24014 /* AppDelegate.swift */; };
 		ECC99D1A26230D6B00E24014 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC99D1926230D6B00E24014 /* SceneDelegate.swift */; };
 		ECC99D1E26230D6B00E24014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECC99D1D26230D6B00E24014 /* Assets.xcassets */; };
@@ -69,6 +70,7 @@
 		ECB74A582629EDED00EA741D /* FinishRegistration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishRegistration.swift; sourceTree = "<group>"; };
 		ECB74A592629EDED00EA741D /* SignUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		ECB74A5A2629EDED00EA741D /* GreetingCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreetingCard.swift; sourceTree = "<group>"; };
+		ECB74A642629F1EC00EA741D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		ECC99D1426230D6B00E24014 /* ReFresh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReFresh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECC99D1726230D6B00E24014 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECC99D1926230D6B00E24014 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				ECB74A1C2629EDD200EA741D /* Helpers */,
 				ECC99D1D26230D6B00E24014 /* Assets.xcassets */,
 				ECC99D2226230D6B00E24014 /* LaunchScreen.storyboard */,
+				ECB74A642629F1EC00EA741D /* GoogleService-Info.plist */,
 				ECC99D2526230D6B00E24014 /* Info.plist */,
 				ECC99D1F26230D6B00E24014 /* Preview Content */,
 			);
@@ -275,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECC99D2426230D6B00E24014 /* LaunchScreen.storyboard in Resources */,
+				ECB74A652629F1EC00EA741D /* GoogleService-Info.plist in Resources */,
 				ECC99D2126230D6B00E24014 /* Preview Assets.xcassets in Resources */,
 				ECC99D1E26230D6B00E24014 /* Assets.xcassets in Resources */,
 			);

@@ -42,6 +42,7 @@ struct BasketView: View {
                         drink in HStack{
                             Image(drink.imageName)
                                 .resizable()
+                                .aspectRatio(contentMode: .fill)
                                 .frame(width: 65, height: 45)
                                 .cornerRadius(10)
                             VStack(alignment: .leading){

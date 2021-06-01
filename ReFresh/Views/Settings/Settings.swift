@@ -59,9 +59,10 @@ struct Settings: View {
                                 .foregroundColor(.red)
                                 .padding(.trailing, 12)
                             Button(action: {
-                                User.logOutUser { (error) in
-                                    print("error logging out user", error?.localizedDescription)
-                                }
+                                createMenu()
+                               // User.logOutUser { (error) in
+                              //      print("error logging out user", error?.localizedDescription)
+                             //   }
                             }, label: {
                                 Text("Deconectare")
                                     .foregroundColor(.red)

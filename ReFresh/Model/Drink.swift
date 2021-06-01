@@ -32,25 +32,19 @@ func createMenu(){
 }
 
 let DrinkMenu = [
+    Drink(id: UUID().uuidString, name: "Smoothie de zmeura",priceInfo: "16 lei/L" , imageName: "zmeura",category: Category.Smoothie, description: "Smoothie proaspat obtinut din zmeura si apa. Foarte bun pentru digestie si un stil de viata sanatos. Recomandam cu incredere!",ingredients: ["90%", "Zmeura","10%","Apa"], price: 7),
     
-    Drink(id: UUID().uuidString, name: "Suc de mere",priceInfo: "10 lei/L" ,imageName: "oj",category: Category.Suc, description: "Suc proaspat obtinut din mere, portocale, caise. Foarte bun pentru digestie si un stil de viata sanatos. Recomandam cu incredere!",ingredients: ["90%", "Mere","10%", "Apa"], price: 4),
-    Drink(id: UUID().uuidString, name: "Suc de mere & portocale & morcovi", priceInfo: "10 lei/L" ,imageName: "oj",category: Category.Suc, description: "Suc proaspat obtinut din mere, portocale, caise. Foarte bun pentru digestie si un stil de viata sanatos. Recomandam cu incredere!",ingredients: ["70%"," Mere","20%", "Portocale", "10%","Morcovi"], price: 6),
+    Drink(id: UUID().uuidString, name: "Suc de mere",priceInfo: "6 lei/L" ,imageName: "mere",category: Category.Suc, description: "Suc proaspat obtinut din mere, portocale, caise. Foarte bun pentru digestie si un stil de viata sanatos. Recomandam cu incredere!",ingredients: ["90%", "Mere","10%", "Apa"], price: 4),
+    
+    Drink(id: UUID().uuidString, name: "Suc de mere & portocale & morcovi", priceInfo: "11 lei/L" ,imageName: "applecarrot",category: Category.Suc, description: "Suc proaspat obtinut din mere, portocale, caise. Foarte bun pentru digestie si un stil de viata sanatos. Recomandam cu incredere!",ingredients: ["70%"," Mere","20%", "Portocale", "10%","Morcovi"], price: 6),
     
     //simple juice
     Drink(id: UUID().uuidString, name: "Fresh de portocale", priceInfo: "8 lei/L"
-          , imageName: "oj",category: Category.Suc, description: "Suc proaspat obtinut din mere, portocale, caise. Foarte bun pentru digestie si un stil de viata sanatos. Recomandam cu incredere!",ingredients: ["100%", "Portocale"],price: 5),
-    
-    
+          , imageName: "portocale",category: Category.Suc, description: "Suc proaspat obtinut din mere, portocale, caise. Foarte bun pentru digestie si un stil de viata sanatos. Recomandam cu incredere!",ingredients: ["100%", "Portocale"],price: 5),
+
     //combined juice
-    Drink(id: UUID().uuidString, name: "Suc de mere & portocale", priceInfo: "10 lei/L" ,imageName: "oj",category: Category.Suc, description: "Suc proaspat obtinut din mere, portocale, caise. Foarte bun pentru digestie si un stil de viata sanatos. Recomandam cu incredere!",ingredients: ["35%", "Mere","65%","Portocale"], price: 6),
+    Drink(id: UUID().uuidString, name: "Pineapple & Coconut", priceInfo: "13 lei/L" ,imageName: "pinap",category: Category.Suc, description: "Smoothie obtinut din ananas si mango, racorit cu gheata",ingredients: ["40%", "Ananas","45%","Mango", "15%", "Gheata"], price: 6),
     
-    
-    //simple_smoothie
-    
-    Drink(id: UUID().uuidString, name: "Smoothie de zmeura",priceInfo: "12 lei/L" , imageName: "oj",category: Category.Smoothie, description: "Suc proaspat obtinut din mere, portocale, caise. Foarte bun pentru digestie si un stil de viata sanatos. Recomandam cu incredere!",ingredients: ["90%", "Zmeura","10%","apa"],price: 7),
-    
-    //combined_smoothie
-    
-    Drink(id: UUID().uuidString, name: "Smoothie de zmeura & mango", priceInfo: "10 lei/L" ,imageName: "oj",category: Category.MultiSmoothie, description: "Suc proaspat obtinut din mere, portocale, caise. Foarte bun pentru digestie si un stil de viata sanatos. Recomandam cu incredere!",ingredients: ["50%", "Zmeura","40%","Mango", "10%","apa"],price: 8)
+    Drink(id: UUID().uuidString, name: "Zmeura & Mango", priceInfo: "15 lei/L" ,imageName: "raspmango",category: Category.MultiSmoothie, description: "Suc proaspat obtinut din mere, portocale, caise. Foarte bun pentru digestie si un stil de viata sanatos. Recomandam cu incredere!",ingredients: ["50%", "Zmeura","40%","Mango", "10%","apa"],price: 8)
     
 ]

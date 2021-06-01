@@ -29,7 +29,7 @@ struct ContentView: View {
 struct AppView: View {
     var body: some View {
         TabView{
-            Drinks() .tabItem { Image("t2")
+            Drinks() .tabItem { Image(systemName: "homepod")
                 Text("Produse")}
             Search() .tabItem { Image(systemName: "magnifyingglass")
                 Text("Cauta")}

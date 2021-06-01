@@ -7,10 +7,12 @@
 
 import SwiftUI
 
+let width = UIScreen.main.bounds.width
+let height = UIScreen.main.bounds.height
+
 struct DrinkDetail: View {
     
     @State private var showingAlert = false
-    @State private var zoomed = false
     
     let drink: Drink
     var ingredients: Int {
@@ -26,230 +28,131 @@ struct DrinkDetail: View {
     }
     
     var body: some View {
-        
-        ScrollView(.vertical, showsIndicators: false) {
+       // ScrollView(.vertical, showsIndicators: false) {
+        VStack(spacing: 0) {
+                image
+            mainBody.padding(.top, -30)
+            }
+       // }
+        .edgesIgnoringSafeArea(.all)
+        .alert(isPresented: $showingAlert) {
+            Alert(title: Text("Produsul a fost adaugat in cos"),dismissButton: .default(Text("Ok")))}
+    }
+    
+    var image: some View {
+        VStack {
             Image(drink.imageName)
                 .resizable()
-                .aspectRatio(contentMode: zoomed ? .fill : .fit)
-                .onTapGesture { self.zoomed.toggle() }
-                .frame(height: UIScreen.main.bounds.height / 2.8) //maybe geometry reader
-               
+                .aspectRatio(contentMode: .fill)
+                .frame(width: width, height: height / 2.5)
+                .edgesIgnoringSafeArea(.top)
+            
+        }
+    }
+    
+    var mainBody: some View {
+        ZStack(alignment: .top) {
             VStack(spacing: 0) {
-                VStack(alignment: .leading) {
+                RoundedRectangle(cornerRadius: 25.0)
+                    .fill(Color.coralRed)
+                    .frame(width: 72, height: 7)
+                    .clipped()
+                VStack(alignment: .leading, spacing: 10) {
                     Text(drink.name)
                         .font(.title)
                         .foregroundColor(.black)
                         .fontWeight(.bold)
-                        .padding(.top, 1)
+                        .padding(.top, 10)
+                        .lineLimit(0)
+                    HStack {
+                        Text("\(drink.price.clean) lei")
+                            .font(.title)
+                            .fontWeight(.medium)
+                            .foregroundColor(.black)
+                            .padding(.top, -5)
+                        Text("/ 330 ml")
+                            .foregroundColor(.black)
+                            .font(.subheadline)
+                            .fontWeight(.bold)
+                        Spacer()
+                        Label(drink.priceInfo, systemImage: "info.circle")
+                            .foregroundColor(.yellow)
+                            .shadow(radius: 9)
+                            .frame(width: 80)
+                            .font(.footnote)
+                            .padding(.leading, -5)
+                    }
+                    Divider()
+                    VStack(alignment: .leading) {
+                        Text(drink.description)
+                            .foregroundColor(.black)
+                            .lineLimit(4)
+                            .padding(.top, 10)
+                    }
                 }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                
-                HStack{
-                    Text("\(drink.price.clean) lei")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .foregroundColor(.black)
-                        .padding(.bottom, 3)
-                    Text("/ 330 ml")
-                        .foregroundColor(.black)
-                        .font(.subheadline)
-                        .fontWeight(.bold)
-                    Spacer()
-                    Label(drink.priceInfo, systemImage: "info.circle")
-                        .foregroundColor(.yellow)
-                        .shadow(radius: 9)
-                        .frame(width: 80)
-                        .font(.footnote)
-                        .padding(.leading, -5)
-                }
-                .padding(.top, 1)
-                .frame(maxWidth: .infinity,alignment: .leading)
-                
-                Divider()
-                
-                VStack(alignment: .leading) {
-                    Text(drink.description)
-                        .foregroundColor(.black)
-                        .font(.body) .lineLimit(4)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .padding(.top, -5)
-                    
-                }
-                .padding(.top)
-                .frame(maxWidth: .infinity,alignment: .leading)
-                
                 if #available(iOS 14.0, *) {
                     Label(type, systemImage: "tag")
                         .foregroundColor(.yellow) .shadow(radius: 9)
                         .padding(.top, 20) .padding(.bottom, 5)
-                } else {
-                    // Fallback on earlier versions
                 }
-                
-                HStack(spacing: 20) {
-                    
-                    if ingredients == 2{
-                        VStack{
-                            
-                            Text(drink.ingredients[0])
-                                .foregroundColor(.orange)
-                                .font(.title3)
-                            Text(drink.ingredients[1])
-                                .foregroundColor(.red)
-                                .font(.caption)
-                        }
-                        .padding()
-                        .background(Color.black)
-                        .cornerRadius(15)
-                        .shadow(radius: 9)
-                    }
-                    
-                    else if ingredients == 4{
-                        VStack{
-                            
-                            Text(drink.ingredients[0])
-                                .foregroundColor(.orange)
-                                .font(.title3)
-                            Text(drink.ingredients[1])
-                                .foregroundColor(.red)
-                                .font(.caption)
-                        }
-                        .padding()
-                        .background(Color.black)
-                        .cornerRadius(15)
-                        .shadow(radius: 9)
-                        
-                        VStack{
-                            
-                            Text(drink.ingredients[2])
-                                .foregroundColor(.green)
-                                .font(.title3)
-                            Text(drink.ingredients[3])
-                                .foregroundColor(.red)
-                                .font(.caption)
-                        }
-                        .padding()
-                        .background(Color.black)
-                        .cornerRadius(15)
-                        .shadow(radius: 9)
-                    }
-                    
-                    else if ingredients == 6{
-                        VStack{
-                            
-                            Text(drink.ingredients[0])
-                                .font(.title3)
-                                .foregroundColor(.purple)
-                            Text(drink.ingredients[1])
-                                .font(.caption)
-                                .foregroundColor(.red)
-                            
-                        }
-                        .padding()
-                        .background(Color.black)
-                        .cornerRadius(15)
-                        .shadow(radius: 9)
-                        
-                        VStack{
-                            
-                            Text(drink.ingredients[2])
-                                .foregroundColor(.orange)
-                                .font(.title3)
-                            
-                            Text(drink.ingredients[3])
-                                .font(.caption)
-                                .foregroundColor(.red)
-                        }
-                        .padding()
-                        .background(Color.black)
-                        .cornerRadius(15)
-                        .shadow(radius: 9)
-                        
-                        VStack{
-                            
-                            Text(drink.ingredients[4])
-                                .font(.title3)
-                                .foregroundColor(.yellow)
-                            Text(drink.ingredients[5])
-                                .foregroundColor(.red)
-                                .font(.caption)
-                            
-                        }
-                        
-                    }
-                    
-                } // hstack end
-                .padding(.bottom,10)
-                
-                HStack{
-                    Spacer()
-                    OrderButton(showAlert: $showingAlert, drink: drink)
-                    Spacer()
-                }
-                .padding(.top, 25)
-                .padding(.bottom, UIScreen.main.bounds.height / 7) //not good
-            } //vstack end
-            .padding()
+                ingredientsView
+                OrderButton(showAlert: $showingAlert, drink: drink)
+                Spacer()
+            }
+            .padding([.leading, .trailing], 24)
             .background(Color.red)
             .cornerRadius(25, corners: [.topLeft, .topRight])
-            .edgesIgnoringSafeArea(.bottom)
-            .padding(.top, 90) //not good
-            .frame(height: UIScreen.main.bounds.width - 10) //not good
-        } //scroll end
-        .edgesIgnoringSafeArea(.top) //maybe all
-        .alert(isPresented: $showingAlert) {
-            Alert(title: Text("Produsul a fost adaugat in cos"),dismissButton: .default(Text("Ok")))}
+        }
+    }
+    
+    var ingredientsView: some View {
+        HStack(spacing: 20) {
+            if ingredients == 2 {
+                Ingredients(nrOfIngredients: 1, components: [Ingredient(text: drink.ingredients[0], text2: drink.ingredients[1], color: .orange)])
+            }
+            
+            else if ingredients == 4 {
+                Ingredients(nrOfIngredients: 2, components: [Ingredient(text: drink.ingredients[0], text2: drink.ingredients[1], color: .orange),Ingredient(text: drink.ingredients[2], text2: drink.ingredients[3], color: .green)])
+            }
+            
+            else if ingredients == 6 {
+                Ingredients(nrOfIngredients: 3, components: [Ingredient(text: drink.ingredients[0], text2: drink.ingredients[1], color: .purple), Ingredient(text: drink.ingredients[2], text2: drink.ingredients[3], color: .coralRed), Ingredient(text: drink.ingredients[4], text2: drink.ingredients[5], color: .yellow)])
+            }
+        }
+        .padding([.bottom, .top], 10)
     }
 }
 
-struct OrderButton: View{
-    
-    @Binding var showAlert: Bool
-    @ObservedObject var basketListener = BasketListener()
-    @Environment(\.presentationMode) var presentationMode
-    
-    var drink: Drink
+struct Ingredients: View {
+    let nrOfIngredients: Int
+    let components: [Ingredient]
     var body: some View {
-        Button(action: {
-            self.presentationMode.wrappedValue.dismiss()
-            self.showAlert.toggle()
-            self.addItemToBasket()
-        }) {
-            Text("Adauga in cos")
+        ForEach(0..<nrOfIngredients ) { item in
+            VStack {
+                components[item]
+            }
         }
-        .frame(width: 200, height: 50)
-        .foregroundColor(.white)
-        .font(.headline)
-        .background(Color.orange)
-        .cornerRadius(20.0)
-    }
-    private func addItemToBasket() {
-        var orderBasket: Order!
-        if self.basketListener.orderBasket != nil {
-            orderBasket = self.basketListener.orderBasket
-        } else {
-            orderBasket = Order()
-            orderBasket.customerFullName = User.currentUser()?.fullName
-            orderBasket.id = UUID().uuidString
-        }
-        orderBasket.add(self.drink)
-        orderBasket.saveBasketToFirestore()
+        .frame(width: 70, height: 70)
+        .background(Color.darkRed)
+        .cornerRadius(13)
+        .shadow(radius: 9)
     }
 }
 
-extension VStack {
-    func squareModifiers() {
-        self
-            .padding()
-            .background(Color.black)
-            .cornerRadius(15)
-            .shadow(radius: 9)
-    }
-}
-
-struct DrinkDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        DrinkDetail(drink: DrinkMenu.first!)
-            .preferredColorScheme(.light)
+struct Ingredient: View {
+    let text: String
+    let text2: String
+    let color: Color
+    
+    var body: some View {
+        VStack {
+            Text(text)
+                .foregroundColor(color)
+                .font(.title3)
+                .bold()
+            Text(text2)
+                .foregroundColor(.white)
+                .font(.subheadline)
+        }
     }
 }
